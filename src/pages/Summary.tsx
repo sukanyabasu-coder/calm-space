@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useReflections } from '@/hooks/useReflections';
 import { Reflection } from '@/types/reflection';
 import { useToast } from '@/hooks/use-toast';
+import { InsightCard } from '@/components/cbt/InsightCard';
 
 export default function Summary() {
   const navigate = useNavigate();
@@ -94,6 +95,15 @@ export default function Summary() {
           </p>
         </div>
 
+        {/* Insight card from the session */}
+        {reflection.aiInsight && (
+          <InsightCard 
+            title="A thought to carry with you"
+            message={reflection.aiInsight}
+            variant="supportive"
+          />
+        )}
+
         {/* Summary cards */}
         <div className="space-y-4 pt-4">
           {summaryCards.map((card, index) => (
@@ -131,6 +141,15 @@ export default function Summary() {
               ))}
             </div>
           </div>
+        )}
+
+        {/* Affirmation card */}
+        {reflection.aiAffirmation && (
+          <InsightCard 
+            title="Remember"
+            message={reflection.aiAffirmation}
+            variant="affirmation"
+          />
         )}
 
         {/* Action buttons */}
