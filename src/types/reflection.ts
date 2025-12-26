@@ -10,6 +10,10 @@ export interface Reflection {
   reframe: string;
   action: string;
   completed: boolean;
+  aiInsight?: string;
+  aiAffirmation?: string;
+  voiceUsed?: boolean;
+  breathingCompleted?: boolean;
 }
 
 export interface MoodEntry {
@@ -18,7 +22,7 @@ export interface MoodEntry {
   intensity: number; // 1-5
 }
 
-export type CBTStep = 'situation' | 'thought' | 'emotion' | 'reframe' | 'action';
+export type CBTStep = 'situation' | 'thought' | 'emotion' | 'breathe' | 'reframe' | 'action';
 
 export interface CBTFlowState {
   currentStep: CBTStep;
@@ -27,4 +31,8 @@ export interface CBTFlowState {
   emotions: Emotion[];
   reframe: string;
   action: string;
+  aiInsight?: string;
+  aiAffirmation?: string;
+  voiceUsed?: boolean;
+  breathingCompleted?: boolean;
 }
